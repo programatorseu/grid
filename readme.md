@@ -406,4 +406,39 @@ align - y axis
 ```
 
 
+### 13. Simple Grid system with pictures
+```html
+<div class="wrapper">
+        <div class="album">
+          <img class="album__artwork" src="https://source.unsplash.com/random/300x300?v=1">
+          <div class="album__details">
+            <h2>Album Title</h2>
+            <p class="album__artist">Artist Name</p>
+            <p class="album__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum sed sint doloremque repellat, iste debitis.</p>
+            <p class="album__desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis, excepturi!</p>
+          </div>
+        </div>
+  ...
+  
+```
 
+```css
+   .wrapper {
+            display: grid;
+            grid-template-columns:repeat(auto-fit, minmax(600px, 1fr));
+            grid-gap: 20px;
+        }
+        .album {
+            background: rgba(74, 79, 71, 0.2);
+            box-shadow: 0 0 5px rgba(0,0,0, 0.1);
+            padding:20px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-gap: 10px;
+            align-items: center;
+        }
+        img { width: 100%;  }
+        .album__artwork {
+            width:100%;
+        }
+```
