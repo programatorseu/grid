@@ -326,3 +326,84 @@ then we can style media quries
     }
 ```
 
+### 11. Grid Lines 
+
+
+
+```html
+.container > .item*30
+```
+
+```css
+.container {
+  display:grid;
+  grid-gap:20px;
+  grid-template-columns: [sidebar-start site-left] 1fr [sidebar-end content-start] 500px [content-end] 1fr [site-right];  
+  grid-template-rows: [content-top] repeat(10, auto) [content-bottom];
+}
+.item3 {
+  background:slateblue;
+  grid-column:content-start;
+  grid-row:content-top / content-bottom;
+}
+```
+
+
+
+---
+
+### 12. Auto-flow dense block fitting
+
+if we have more items - that are not fitted into grid - are moved into another row (implicitly )
+
+we have 70 items 
+
+every 6th item will have span of 6 
+
+```css
+grid-auto-flow:dense /*make sure that we will have 10 columns*/
+```
+
+```css
+.container {
+  display:grid;
+  grid-gap:20px;
+  grid-template-columns: repeat(10, 1fr);
+  grid-auto-flow:dense;
+}
+.item:nth-child(6n) {
+  background:cornflowerblue;
+  grid-column:span 6;
+}
+```
+
+
+
+---
+
+### 13. Grid Alignment + centering
+
+justify-  x axis 
+
+align - y axis 
+
+**They do not switch like in flexbox**
+
+```css
+.container {
+  display:grid;
+  grid-gap:20px;
+  height:500px;
+  border:10px solid var(--yellow);
+  grid-template-columns:repeat(5, 130px);
+/* justify-items: center; */
+/*   align-items:center; */
+  place-items:flex-end stretch;
+        justify-content: space-between;
+/*       align-content: space-between; */
+
+}
+```
+
+
+
